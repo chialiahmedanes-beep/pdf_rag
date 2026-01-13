@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PDF RAG</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <div>
+        <h1>PDF RAG</h1>
+        <p class="sub">Upload a PDF, ingest it, then ask questions.</p>
+      </div>
+      <div class="badge">CPU • Local</div>
+    </header>
+
+    <section class="card">
+      <h2>1) Ingest PDF</h2>
+      <div class="row">
+        <input id="pdf" class="file" type="file" accept="application/pdf" />
+        <button id="btnIngest" class="btn">Ingest</button>
+      </div>
+      <p class="hint">Tip: Ingestion can take ~10–30s for big PDFs.</p>
+    </section>
+
+    <section class="card">
+      <h2>2) Ask</h2>
+      <div class="row">
+        <input id="q" class="text" type="text" placeholder="e.g., What is the title of the document?" />
+        <button id="btnAsk" class="btn primary">Ask</button>
+      </div>
+
+      <div class="row">
+        <button id="btnExample" class="btn ghost">Use example question</button>
+        <button id="btnClear" class="btn ghost">Clear</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Answer</h2>
+      <div id="status" class="status"></div>
+
+      <div class="answer">
+        <pre id="answerText"></pre>
+      </div>
+
+      <div class="sources">
+        <div class="sourcesTitle">Sources</div>
+        <ul id="sourcesList"></ul>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>Endpoints: <code>/ingest</code> • <code>/query</code></span>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
